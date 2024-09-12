@@ -64,4 +64,4 @@ in the `persons` collection where the `name` field exists and its data type is e
 "number". This query will return documents where the `name` field is present and its value is either
 a string or a number. */
 
-db.persons.find({ name: { $type: ["string", "number"] } });
+db.persons.find({ name: { $type: ["string", "number"]}});
