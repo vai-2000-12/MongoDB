@@ -28,3 +28,20 @@ When using `$all`, MongoDB will match documents where the array field contains a
 elements in any order. */
 //Here order does not matter you just wanted to get the Data From the Array:
 db.users.find({hobbies : {$all : ["cricket", "carrom"]}}).pretty();
+
+/* $elemMatch  is an operator in MongoDB used to query arrays based on specific criteria within the
+array elements. It allows you to specify multiple criteria for matching elements within an array
+field. When using , MongoDB will match documents where at least one array element
+satisfies all the specified criteria. This can be useful when you need to query arrays with nested
+objects or when you want to match elements based on multiple conditions within the same array field. */
+
+db.users.find().pretty({$and: [{"hobbies.title" : "Sports"}, {"hobbies.freq": {$gte :3}}]}).count();
+
+db.users.find({
+    hobbies: {
+      $elemMatch: {
+        title: "Carrom",
+        freq: { $gte: 1 }
+      }
+    }
+  });
