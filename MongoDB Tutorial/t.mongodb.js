@@ -25,4 +25,7 @@ db.userInfo.find().pretty();
 db.userInfo.find().sort({age : -1}).limit(3).pretty();
 
 //This Query Basically first sorts the Data in ascending order them limit the data and thens skips the first Data..
+// The order does not matter int the skip(), sort(), limit() we can do anything first as per requirements..
+//But this order will change in case of the aggregate Functions....
+
 db.userInfo.find().sort({age : 1}).limit(2).skip(1).pretty();
