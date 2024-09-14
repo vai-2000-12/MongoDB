@@ -53,5 +53,3 @@ db.persons.find(
      $not : {$eq :24}
     }
 }).count();
-
-
