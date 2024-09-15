@@ -44,4 +44,4 @@ db.users.find({
         freq: { $gte: 1 }
       }
     }
-  });
+});

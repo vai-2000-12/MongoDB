@@ -22,7 +22,7 @@ all documents that have the `age` field defined, regardless of the actual value 
 field. */
 //Lets take the case : find all persons whose age is 30'..
 
-db.persons.find({ age: { $exists: true } });
+db.persons.find({ age: { $exists: true }});
 
 /* The query `db.persons.find({age : { : true,  : 21}});` is finding all documents in the
 `persons` collection where the `age` field exists and the value of the `age` field is greater than
