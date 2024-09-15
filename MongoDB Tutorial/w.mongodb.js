@@ -32,5 +32,6 @@ operator is useful for performing arithmetic operations on numerical fields in M
 
 
 //I cannot apply the same operator on two different Fields that is not allowed in MongoDB
+//upsert : update and insert
 db.users.updateOne({name : "Rick"}, {$inc : {age :-1}});
 db.users.find().pretty();
