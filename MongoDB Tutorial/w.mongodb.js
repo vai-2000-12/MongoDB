@@ -20,3 +20,17 @@ db.users.find().pretty();
 
 db.users.updateMany({"hobbies.title": "Studying MongoDb"}, {$set : {isSporty : true}});
 db.users.find().pretty();
+
+//Updating Multi[;e Fields using the $set operation:-
+db.users.updateOne({_id:ObjectId('66e2d9aabc5a302ccad1a353')}, {$set : {phone : "79843543693", age :32, name : "Bunty"}});
+db.users.find().pretty();
+
+/* `$inc` is a MongoDB update operator that is used to increment the value of a field by a specified
+amount. When used in an update operation, ``$inc` increases the value of the specified field by the
+specified amount. If the field does not exist, ``$inc` sets the field to the specified amount. This
+operator is useful for performing arithmetic operations on numerical fields in MongoDB documents. */
+
+
+//I cannot apply the same operator on two different Fields that is not allowed in MongoDB
+db.users.updateOne({name : "Rick"}, {$inc : {age :-1}});
+db.users.find().pretty();
