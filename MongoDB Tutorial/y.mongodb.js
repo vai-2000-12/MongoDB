@@ -35,3 +35,5 @@ that the data is either updated or inserted based on the conditions provided. */
 //So since this Name Data was not their none of the Data Set is updated , Is their any to that if the data is not their so first it should insert and then update that Record 
 db.users.updateOne({name : "Julia"}, {$set : {age : 29, hobbies :[{title : "Hello Duniyawala", freq : 5 }], isSporty : true}}, {upsert : true});
 db.users.find().pretty();
+
+
