@@ -34,4 +34,3 @@ them. This is particularly useful when you want to update multiple elements with
 single operation without knowing their specific positions. */
 
 db.users.updateMany({TotalAge : {gt : 30}}, {$inc :{"hobbies.$[].freq" : -1}});
-
