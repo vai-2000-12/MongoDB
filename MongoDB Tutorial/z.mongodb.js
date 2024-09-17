@@ -69,7 +69,6 @@ db.users.updateOne(
 db.users.find().pretty();
 
 //$pull
-
 db.users.updateOne(
   { name: "Manual" }, // Filter: find the document where name is "Alex"
   { $pull: { hobbies: { title: "Badiminton", freq: 7 } } } // Update: push a new hobby object into the hobbies array
