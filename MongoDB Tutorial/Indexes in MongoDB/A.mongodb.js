@@ -68,7 +68,7 @@ db.customers.insertMany([
   ]);
   
 
-db.customers.find().pretty().count();
+db.customers.find().pretty();
 
 //So lets Find the All those age whose Value is greater than equals 20
 db.customers.find({"address.zip" :  {$eq : "37203"}}).pretty();
@@ -77,3 +77,10 @@ db.customers.explain().find({"address.zip" :  {$eq : "37203"}}).pretty();
 
 //We can also  pass the Argument called as "executionStats" this is used to get the Detailed Output for that query
 db.customers.explain("executionStats").find({"address.zip" :  {$eq : "37203"}}).pretty();
+
+//How to create the Index in the Mongo Db 
+
+db.customers.createIndex( {"address.city" : 1});
+
+// It Did the Index Scan  its look like this "stage": "IXSCAN"..
+db.customers.explain("executionStats").find({"address.city" : 1}).pretty();
