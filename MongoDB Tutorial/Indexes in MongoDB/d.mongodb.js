@@ -25,3 +25,10 @@ db.sessions.createIndex({createdAt : 1}, {expireAfterSeconds : 10});
 //Basically the Data Is being Deleted After 10 Seconds when I added this new Argument in the CreateIndex 
 //This is Basically useful n cases Where you want to expire A session after sometime  this expireAfterSeconds is useful
 db.sessions.find().pretty();
+
+//Query Planning and Query Diagonsis:-
+// The explain() method takes 3 arguments : queryPlanner , executionStats, allPlansExceution
+db.sessions.explain("allPlansExecution").find().pretty();
+db.sessions.explain("executionStats").find().pretty();
+db.sessions.explain("queryPlanner").find().pretty();
+
