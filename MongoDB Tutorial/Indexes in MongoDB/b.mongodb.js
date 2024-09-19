@@ -46,4 +46,4 @@ db.customers.find().pretty();
 
 //Unique Indexes helps in Data Consistency and helps us to avoid the Duplicate for Fields   
 db.customers.createIndex({"contact.email": 1}, {unique : true}); //error Duplicate Key for this Email
-db.customers.dropIndex({"previous_cities" :-1, age :1})
+db.customers.dropIndex({"previous_cities" :-1, age :1});
