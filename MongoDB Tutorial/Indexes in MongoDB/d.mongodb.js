@@ -17,10 +17,11 @@ db.user.insertOne({name : "Anna"})
 db.user.find().pretty();
 db.user.getIndexes();
 
-//TTL Index:- Time To Live Index
+//TTL Index:- Time To Live Indexes
 db.sessions.insertOne({data : "Dfasrae", createdAt : new Date()})
 db.sessions.find().pretty();
-// This expiredAfterSession is used only with the Date
+// This expiredAfterSession is used only with the Date Objects
 db.sessions.createIndex({createdAt : 1}, {expireAfterSeconds : 10});
 //Basically the Data Is being Deleted After 10 Seconds when I added this new Argument in the CreateIndex 
+//This is Basically useful n cases Where you want to expire A session after sometime  this expireAfterSeconds is useful
 db.sessions.find().pretty();
