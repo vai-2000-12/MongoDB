@@ -15,3 +15,9 @@ db.products.createIndex({description : "text"});
 db.products.find({$text : {$search : "book" }}).pretty();
 db.products.find({$text : {$search : "Machine book" }}).pretty();
 db.products.find({$text : {$search : "\"  book\" " }}).pretty();
+
+//Text Indexeing and Sorting:
+//Using Projection using Meta Operator :
+//Meta is A field That is Managed By Mongodb ..
+//This score Basically Helps in sorting The Text Indexes  
+db.products.find({$text : {$search : "Amazing Machine"}}, {score : {$meta : "textScore"}}).sort({score : {$meta : "textScore"}}).pretty();
