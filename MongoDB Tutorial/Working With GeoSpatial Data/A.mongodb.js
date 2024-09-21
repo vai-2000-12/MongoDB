@@ -60,10 +60,36 @@ db.places.find({
           [-122.45303, 37.76641],
           [-122.51026, 37.76411],
           [-122.51088, 37.77131],
-          [-122.4547, 37.77473] // Ensure the first and last points are identical to close the polygon
+          [-122.4547, 37.77473]
         ]]
       }
     }
   }
 });
-//Here in this Query I didnt Get the "Nopa" Location Just Because It was Outside the Polygon  
+//Here in this Query I didnt Get the "Nopa" Location Just Because It was Outside the Polygon Not Inside the That polygon
+db.areas.insertOne({
+  name: "Golden Gate Park",
+  area: {
+    type: "Polygon",
+    coordinates: [[
+      [-122.4547, 37.77473],
+      [-122.45303, 37.76641],
+      [-122.51026, 37.76411],
+      [-122.51088, 37.77131],
+      [-122.4547, 37.77473]
+    ]]
+  }
+});
+
+//Lets Create the Index for this area Field :
+db.areas.createIndex({areas : "2dsphere"});
+db.places.find({
+  areas: {
+    $geoIntersects: {
+      $geometry: {
+        type: "Point",
+        coordinates: [-122.49089, 37.76992]
+      }
+    }
+  }
+});
