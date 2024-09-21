@@ -37,3 +37,7 @@ db.products.createIndex({title : "text", description : "text"});
 db.products.getIndexes();
 db.products.findOne();
 db.products.find({$text : {$search : "Book"}}, {score : {$meta : "textScore"}});
+
+// Using Text Indexes to Exclude the Words:-
+//I can exclude the words by using the - sign 
+db.products.find({$text : {$search : "awesome-A Computer"}});

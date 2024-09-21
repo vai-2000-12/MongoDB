@@ -110,3 +110,5 @@ Sorted lists are way quicker to search because you can skip entire ranges (and d
 Additionally, sorting (via sort(...)) will also be sped up because you already have a sorted list.
  Of course this is only true when sorting for the age.
 */
+
+// Indexes Doesen't comes for free They basically slow down the Writes 
