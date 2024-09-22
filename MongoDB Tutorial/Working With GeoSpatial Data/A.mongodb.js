@@ -94,4 +94,5 @@ db.places.find({
   }
 });
 //Finding the Places with Near By radius:-
+
 db.places.find({location :{$geoWithin :{$centerSphere : [ [-122.46203, 37.77286] , 1/6378.1]}}});
